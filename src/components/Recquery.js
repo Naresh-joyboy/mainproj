@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import "../css/recque.css";
 import axios from "axios";
 import moment from "moment";
+import {useNavigate} from 'react-router-dom'
+
 
 const Recquery = (url) => {
+    const navigate = useNavigate();
     const [input,setInput]= useState({
         category:'',
         voiceLanguage:'',
@@ -35,7 +38,12 @@ const Recquery = (url) => {
           console.log('there is an error')
       }
       setInput('')
+      navigate("/")
     }
+    const file=[
+      {id:'Zen-classDoubt',one:'dfsdf',two:'sdfsf',three:'dasd',four:'sasasf'},
+      {id:'Placement Related',one:'arun',two:'sdfsf',three:'dasd',four:'sasasf'}
+    ]
 
   return (
     <div className="main" >
@@ -62,59 +70,22 @@ const Recquery = (url) => {
             </select>
           </div>
         </div>
-        {/* if(input.category===Zen-classDoubt){
+       {file.map((data)=>(
+        (data.id==input.category)?(
         <div>
           <h4 className="sub-title">Sub-Category</h4>
           <div className="drop">
             <select className="select-box" required name='subcategory' onChange={handlechange}>
               <option value="">select category</option>
-              <option value="Task">Task</option>
-              <option value="Webcode">Webcode</option>
-              <option value="Classtopic">Classtopic</option>
-              <option value="Webkata">Webkata</option>
-              <option value="Codekata">Codekata</option>
-              <option value="Assessment">Assessment</option>
+              <option value="Task">{data.one}</option>
+              <option value="Webcode">{data.two}</option>
+              <option value="Classtopic">{data.two}</option>
+              <option value="Webkata">{data.two}</option>
+              <option value="Codekata">{data.two}</option>
+              <option value="Assessment">{data.two}</option>
             </select>
           </div>
-        </div>}else if(category===Placement Related){
-        <div>
-          <h4 className="sub-title">Sub-Category</h4>
-          <div className="drop">
-            <select className="select-box" required name='subcategory' onChange={handlechange}>
-              <option value="">select category</option>
-              <option value="Company-info">Company-info</option>
-              <option value="CompletionCertification">CompletionCertification</option>
-              <option value="Portfolio">Portfolio</option>
-            </select>
-          </div>
-        </div>}else if(category===Coordination related){
-        <div>
-          <h4 className="sub-title">Sub-Category</h4>
-          <div className="drop">
-            <select className="select-box" required name='subcategory' onChange={handlechange}>
-              <option value="">select category</option>
-              <option value="SessionTiming">SessionTiming</option>
-              <option value="SessionjoiningLink">SessionjoiningLink</option>
-              <option value="sessionFeedback">session Feedback</option>
-              <option value="CompletionCertification">Completion Certification</option>
-              <option value="Payment">Payment</option>
-            </select>
-          </div>
-        </div>}else(category===Pre-bootcamp){
-        <div>
-          <h4 className="sub-title">Sub-Category</h4>
-          <div className="drop">
-            <select className="select-box" required name='subcategory' onChange={handlechange}>
-              <option value="">select category</option>
-              <option value="session">session</option>
-              <option value="Payment">Payment</option>
-              <option value="Codekata">Codekata</option>
-              <option value="Webkata">Webkata</option>
-              <option value="Task">Task</option>
-              <option value="others">others</option>
-            </select>
-          </div>
-        </div>} */}
+        </div>):(<></>)))}
         </div>
         <div>
           <h4 className="sub-title">Voice Language</h4>
@@ -186,6 +157,8 @@ const Recquery = (url) => {
             </button>
           </Link>
           <div className="lastBtns">
+          
+
             <button
               type="submit"
               class="btn submit-btn"
@@ -200,6 +173,7 @@ const Recquery = (url) => {
             >
               Create
             </button>
+           
           </div>
         </div>
       </div>

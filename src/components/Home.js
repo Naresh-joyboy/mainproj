@@ -72,7 +72,7 @@ const Home = ({changedata,specificdata}) => {
           <div className="box-assig">Assigned to:{}</div>
           <div className="box-attach">Attachments:<img alt=""></img></div>
           <div className="but2"><button className="query-btn2" onClick={() => {
-            changedata(e);
+            specificdata(e);
             navigate('/userform');
           }}>Go to query</button></div>
           </div>

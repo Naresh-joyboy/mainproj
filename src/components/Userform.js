@@ -6,20 +6,11 @@ import axios from "axios";
 const Userform = ({change,spechange}) => {
 const [data , setData] = useState('')
 
-let friid;
-if(change){
-   friid = change.id;
-}else if(spechange){
-  friid = spechange.id;
-}
-console.log(friid)
+
 
   const callApi =async ()=>{
     try{
-      if(friid){
-        const res = await axios.get(`https://659a39b9652b843dea535cba.mockapi.io/users/user/${friid}`);
-        setData(res.data) 
-      }
+        setData(spechange) 
     }catch(err){
         console.log("There is an error");
     }
@@ -28,7 +19,7 @@ console.log(friid)
 
   useEffect(()=>{
     callApi()
-  },[])
+  },[spechange])
 
   return (
     <div>
