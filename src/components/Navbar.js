@@ -1,6 +1,8 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 const Navbar = () => {
+    const location=useLocation()
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -173,7 +175,7 @@ const Navbar = () => {
                         <li className="nav-item dropdown no-arrow">
                             <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span className="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span className="mr-2 d-none d-lg-inline text-gray-600 small">someone</span>
                                 <img className="img-profile rounded-circle"
                                     src="img/undraw_profile.svg"/>
                             </a>

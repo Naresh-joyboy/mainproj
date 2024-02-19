@@ -20,7 +20,7 @@ const Sidebar = () => {
             <li className="nav-item active">
                 <Link className="nav-link" to="/">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Main</span></Link>
+                    <span>Home</span></Link>
             </li>
 
          
@@ -34,7 +34,7 @@ const Sidebar = () => {
             <li className="nav-item">
                 <a className="nav-link" href="">
                     <i className="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                    <span>Query</span></a>
             </li>
     
             <hr className="sidebar-divider"/>

@@ -4,13 +4,13 @@ import "../css/recque.css";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
 
-const Home = ({changedata,specificdata}) => {
+const Home = ({specificdata}) => {
    const[data, setData] = useState([])
   
 
   const callApi =async ()=>{
     try{
-        const res = await axios.get('https://659a39b9652b843dea535cba.mockapi.io/users/user');
+        const res = await axios.get('http://localhost:8000/users');
         setData(res.data)
     }catch(err){
         console.log("There is an error");
@@ -50,7 +50,7 @@ const Home = ({changedata,specificdata}) => {
               </div>
                 <div className="right-box">
                 <div className="box-assign">Assigned</div>
-                <div className="box-date">date</div>
+                <div className="box-date">{data.date}</div>
                 </div>
               </div>
             </div>
@@ -61,18 +61,18 @@ const Home = ({changedata,specificdata}) => {
         <div className="second-box">
         <div className="second-box-up">
         <div className="detailedbox">
-        {lastdata.map((e)=>(
-        <div className="container" key={e.id}>
+        {lastdata.map((data)=>(
+        <div className="container" key={data.id}>
         <div className="con-detaile" >
           <div className="box-title"><h5>Recent query</h5></div>
-          <div className="description2"><h4>{`QN${e.id} - ${e.queTitle}`}</h4></div>
+          <div className="description2"><h4>{`QN${data.id} - ${data.queTitle}`}</h4></div>
           <div className="assigned2"><h5 >Assigned</h5></div>
-          <div className="box-created">Created at: fdgdfgdfg</div>
-          <div className="box-des">Description:{e.quDescription}</div>
+          <div className="box-created">Created at:<br/><span className="inner-line">{data.date}</span></div>
+          <div className="box-des">Description:<br/><span className="inner-line">{data.quDescription}</span></div>
           <div className="box-assig">Assigned to:{}</div>
           <div className="box-attach">Attachments:<img alt=""></img></div>
           <div className="but2"><button className="query-btn2" onClick={() => {
-            changedata(e);
+            specificdata(data);
             navigate('/userform');
           }}>Go to query</button></div>
           </div>
